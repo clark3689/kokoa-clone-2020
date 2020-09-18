@@ -1,0 +1,30 @@
+.alt-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px var(--horizontal-space);
+  box-sizing: border-box;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+.alt-header__column i {
+  font-size: 23px;
+}
+.alt-header__column {
+  display: flex;
+  align-items: center;
+  width: 33%;
+}
+.alt-header__column:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+.alt-header__column-hamburger {
+  margin-left: 20px;
+}
+.alt-header__column span {
+  display: flex;
+  align-items: center;
+}
