@@ -1,6 +1,6 @@
 #chat-screen {
   background-color: #abc1d1;
-  height: 11000vh;
+  height: 500vh;
 }
 
 #chat-screen .alt-header {
@@ -14,12 +14,51 @@
   background-color: #abc1d1;
 }
 
+@keyframes fadeIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes leftIn {
+  from {
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes rightIn {
+  from {
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.message-row {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: leftIn 0.3s 0.2s ease-in-out forwards;
+}
+.message-row--own {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: rightIn 0.3s 0.4s ease-in-out forwards;
+}
+
 .main-chat {
-  margin-top: 110px;
+  margin-top: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeIn 0.3s linear;
 }
+
 .chat__timestamp {
   color: white;
   background-color: #92a4b2;
@@ -89,6 +128,7 @@
   justify-content: space-between;
   box-sizing: border-box;
   align-items: center;
+  transition: all 1s ease-in-out;
 }
 .reply .reply__column:first-child {
   width: 10%;
@@ -106,6 +146,8 @@
   border-radius: 25px;
   display: flex;
   box-sizing: border-box;
+  will-change: transition;
+  transition: all 1s ease-in-out;
 }
 
 .reply__column:last-child button {
@@ -127,4 +169,26 @@
 .reply__add {
   color: #92a4b2;
   font-size: 24px;
+}
+
+.reply .reply__column:first-child,
+.reply .fa-smile-wink,
+.reply button {
+  transition: opacity 1s ease-in-out;
+}
+
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile-wink,
+.reply:focus-within button {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.reply:focus-within input {
+  width: 97vw;
+  transform: translateX(-13%) translateY(-80px);
+}
+
+.reply:focus-within {
+  transform: translateY(80px);
 }

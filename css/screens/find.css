@@ -94,3 +94,23 @@
 .open-post:last-child {
   border: none;
 }
+
+@keyframes heartBeat {
+  0% {
+    transform: none;
+    color: white;
+  }
+  50% {
+    transform: scale(1.5);
+    color: var(--orange);
+  }
+  100% {
+    transform: none;
+    color: white;
+  }
+}
+
+.open-post__photo:hover i {
+  will-change: transform;
+  animation: heartBeat 1s linear infinite;
+}
